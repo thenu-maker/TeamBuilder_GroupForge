@@ -1,0 +1,24 @@
+@startuml
+skinparam packageStyle rectangle
+
+package "com.softwareprojekt.teambuilder" {
+
+  package config
+  package entities
+  package interfaces
+  package repository
+  package security
+  package services
+
+  package views {
+    package admin
+    package dialog
+    package gruppenarbeiten
+    package termin
+    package uebersicht
+    package veranstaltung
+  }
+
+}
+
+@enduml

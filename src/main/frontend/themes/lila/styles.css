@@ -1,0 +1,232 @@
+:root {
+    --color-bg: #f9f9fc;          /* helles Grau/Weiß */
+    --color-surface: #e1dff7;     /* zartes Lavendel */
+    --color-accent: #7b3fbf;      /* kräftiges Lila */
+    --color-accent-hover: #a46cd6;/* helleres Lila */
+    --color-text: #3b2e5a;        /* dunkles Lila/Grau */
+    --color-border: #c9bfea;      /* zartes Lila für Rahmen */
+}
+
+/* Grundlayout */
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Overlay */
+[part="overlay"] {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+/* Buttons */
+vaadin-button {
+    background-color: var(--color-accent);
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+vaadin-button:hover,
+vaadin-button:focus {
+    background-color: var(--color-accent-hover);
+}
+
+/* Textfelder und Eingabekomponenten */
+vaadin-text-field,
+vaadin-password-field,
+vaadin-text-area,
+vaadin-combo-box,
+vaadin-select,
+vaadin-date-picker {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+vaadin-text-field:focus,
+vaadin-password-field:focus,
+vaadin-text-area:focus,
+vaadin-combo-box:focus,
+vaadin-select:focus,
+vaadin-date-picker:focus {
+    border-color: var(--color-accent);
+}
+
+/* Eingabefelder innere Parts */
+vaadin-text-field::part(input-field),
+vaadin-password-field::part(input-field),
+vaadin-text-area::part(input-field),
+vaadin-combo-box::part(input-field),
+vaadin-select::part(input-field),
+vaadin-date-picker::part(input-field) {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+}
+
+/* Labels */
+vaadin-label {
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+/* Tabellen */
+vaadin-grid {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+/* Stelle sicher, dass body und Container volle Breite haben */
+body {
+    margin: 0;
+    padding: 1rem;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+/* vaadin-grid auf volle Breite */
+vaadin-grid {
+    width: 100vw; /* gesamte Breite des Viewports */
+    max-width: 100vw; /* nicht größer als Viewport */
+    border-radius: 0; /* optional: abgerundete Ecken entfernen, wenn gewünscht */
+    box-sizing: border-box;
+}
+
+vaadin-grid-cell-content {
+    color: var(--color-text);
+}
+vaadin-grid::part(header-cell),
+vaadin-grid::part(body-cell) {
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Checkboxen */
+vaadin-checkbox {
+    --vaadin-checkbox-color: var(--color-text);
+    --vaadin-checkbox-checked-color: var(--color-accent);
+    --vaadin-checkbox-checked-background-color: var(--color-accent);
+    margin-right: 0.5rem;
+}
+vaadin-checkbox[checked]::part(checkbox) {
+    background-color: var(--color-accent);
+}
+
+/* Tabs */
+vaadin-tabs {
+    background-color: var(--color-surface);
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+}
+vaadin-tab {
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+vaadin-tab[selected] {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    font-weight: 700;
+}
+
+/* Benachrichtigungen/Dialoge */
+vaadin-notification-card,
+vaadin-dialog-overlay {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-radius: 6px;
+}
+
+/* Fortschrittsbalken */
+vaadin-progress-bar::part(value) {
+    background-color: var(--color-accent);
+}
+vaadin-progress-bar::part(background) {
+    background-color: var(--color-border);
+    border-radius: 3px;
+}
+
+/* Schieberegler */
+vaadin-slider::part(handle) {
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    border: none;
+    width: 18px;
+    height: 18px;
+}
+vaadin-slider::part(track) {
+    background-color: var(--color-border);
+    border-radius: 6px;
+}
+
+/* Navigationsleiste (Header, Navbar) */
+header,
+vaadin-app-layout::part(navbar),
+[part="navbar"] {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    box-shadow: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Navigationslinks im Header */
+vaadin-app-layout a,
+header a,
+vaadin-horizontal-layout a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+vaadin-app-layout a:hover,
+header a:hover {
+    color: var(--color-accent-hover);
+}
+
+/* Footer oder untere Abschnitte */
+footer,
+.bottom-container,
+.extra-space,
+div[style*="padding-bottom"],
+div[style*="height"] {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+/* Sicherheitsnetz für alle body-Kinder */
+body > * {
+    background-color: transparent;
+    color: var(--color-text);
+}
+
+/* Benutzerbadge / Avatar */
+vaadin-avatar {
+    --vaadin-avatar-color: var(--color-accent);
+}

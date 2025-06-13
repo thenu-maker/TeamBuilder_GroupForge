@@ -1,0 +1,112 @@
+/* Basisfarben für das Design */
+:root {
+    --lumo-base-color: #ffccbc; /* Wärmerer Beige-Ton als Hintergrund */
+    --lumo-body-text-color: #212121; /* Dunkler Text für gute Lesbarkeit */
+
+    --lumo-primary-color: #d84315; /* Tiefes, kräftiges Orange */
+    --lumo-primary-text-color: #ffecb3; /* Sanftes Gelb statt Weiß */
+
+    --lumo-secondary-color: #1976d2; /* Kräftiges Blau */
+    --lumo-secondary-text-color: #ffecb3; /* Gelblicher Kontrast statt Weiß */
+
+    --lumo-success-color: #388e3c; /* Tiefes Grün */
+    --lumo-error-color: #c62828; /* Dunkleres Rot für Fehler */
+    --lumo-warning-color: #ff8f00; /* Stärkeres Orange für Warnungen */
+
+    --lumo-header-text-color: #6a1b9a; /* Intensives Violett für Überschriften */
+    --lumo-footer-background: #37474f; /* Dunkler Footer */
+}
+
+/* Hintergrund und allgemeine Styles */
+html {
+    background-color: var(--lumo-base-color);
+    color: var(--lumo-body-text-color);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Buttons */
+vaadin-button {
+    background-color: var(--lumo-primary-color);
+    color: var(--lumo-primary-text-color);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: bold;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+vaadin-button:hover {
+    background-color: #bf360c; /* Dunkleres Orange beim Hover */
+}
+
+/* Textfelder */
+vaadin-text-field {
+    background-color: #f57c00; /* Kräftiges Orange statt Weiß */
+    border: 3px solid var(--lumo-secondary-color);
+    color: #3e2723; /* Dunklere Schriftfarbe */
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Labels */
+vaadin-label {
+    color: var(--lumo-header-text-color);
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* Karten */
+vaadin-card {
+    background-color: #ffd180; /* Sanftes Gelb statt Blau */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Erfolgsmeldungen */
+vaadin-notification.success {
+    background-color: var(--lumo-success-color);
+    color: #e8f5e9;
+}
+
+/* Fehlermeldungen */
+vaadin-notification.error {
+    background-color: var(--lumo-error-color);
+    color: #ffccbc;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--lumo-footer-background);
+    color: #ffecb3;
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--lumo-primary-color);
+    padding: 12px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.navbar vaadin-button {
+    background-color: var(--lumo-secondary-color);
+    color: var(--lumo-secondary-text-color);
+    margin: 6px;
+}
+
+/* Weitere UI-Komponenten */
+vaadin-grid {
+    border: 2px solid var(--lumo-secondary-color);
+}
+
+vaadin-checkbox {
+    color: var(--lumo-primary-color);
+}
+
+vaadin-radio-button {
+    color: var(--lumo-secondary-color);
+}
