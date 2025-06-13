@@ -8,6 +8,7 @@ import com.softwareprojekt.teambuilder.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,8 @@ import java.util.List;
 
 //Author: Fiona Sander
 @Component
-public class Intialise implements ApplicationListener<ApplicationReadyEvent> {
+@Profile("dev")
+public class Initialise implements ApplicationListener<ApplicationReadyEvent> {
 
 
     @Autowired
@@ -56,14 +58,8 @@ public class Intialise implements ApplicationListener<ApplicationReadyEvent> {
 
 
         //region Benutzer
-        if (benutzerService.findBenutzerByUsername("Vita") == null) {
-            Benutzer admin = benutzerService.createBenutzer("Vita", "Vita", "Malz", "Malz", Benutzer.Role.ADMIN,"src/main/resources/images/Vitamalz_Logo.png");
-            admin.setTitel("Herr Prof. Dr.");
-            benutzerService.saveBenutzer(admin);
-        }
-
-        if (benutzerService.findBenutzerByUsername("Paulaner") == null) {
-            Benutzer prof = benutzerService.createBenutzer("Paulaner", "Paulaner", "Spezi", "Spezi", Benutzer.Role.PROFESSOR);
+        if (benutzerService.findBenutzerByUsername("afoerster") == null) {
+            Benutzer prof = benutzerService.createBenutzer("afoerster", "Alexander", "Förster", "changeMe", Benutzer.Role.PROFESSOR);
             prof.setTitel("Dr.");
             benutzerService.saveBenutzer(prof);
         }
@@ -98,10 +94,12 @@ public class Intialise implements ApplicationListener<ApplicationReadyEvent> {
         //endregion
 
         //region Veranstaltung
-        Veranstaltung v1 = veranstaltungService.findOrCreateVeranstaltung("Softwareprojekt", "Wintersemester 2025", 1);
-        Veranstaltung v2 = veranstaltungService.findOrCreateVeranstaltung("Webtechnologien", "Sommersemester 2025", 1);
-        Veranstaltung v3 = veranstaltungService.findOrCreateVeranstaltung("Mathe", "Wintersemester 2025", 1);
-        Veranstaltung v4 = veranstaltungService.findOrCreateVeranstaltung("Datenbanken", "Wintersemester 2025", 1);
+        Benutzer prof = benutzerService.findBenutzerByUsername("afoerster");
+
+        Veranstaltung v1 = veranstaltungService.findOrCreateVeranstaltung("Softwareprojekt", "Wintersemester 2025", prof.getId());
+        Veranstaltung v2 = veranstaltungService.findOrCreateVeranstaltung("Webtechnologien", "Sommersemester 2025", prof.getId());
+        Veranstaltung v3 = veranstaltungService.findOrCreateVeranstaltung("Mathe", "Wintersemester 2025", prof.getId());
+        Veranstaltung v4 = veranstaltungService.findOrCreateVeranstaltung("Datenbanken", "Wintersemester 2025", prof.getId());
         //endregion
 
         //region Termin

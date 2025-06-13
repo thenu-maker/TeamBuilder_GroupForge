@@ -1,0 +1,27 @@
+---
+services:
+  groupforge-postgres:
+    image: postgres:17.3-alpine
+    container_name: groupforge-postgres
+    environment:
+      POSTGRES_DB: groupforge
+      POSTGRES_USER: groupforgeUser
+      POSTGRES_PASSWORD: GroupForgeSoftware1234!
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+
+  groupforge-webserver:
+    image:  biberhatfieber/groupforge
+    build: .
+    container_name: groupforge-webserver
+    ports:
+      - "80:80"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://groupforge-postgres:5432/groupforge
+      SPRING_DATASOURCE_USERNAME: groupforgeUser
+      SPRING_DATASOURCE_PASSWORD: GroupForgeSoftware1234!
+      SYSTEM_ADMINUSER_USERNAME: "admin"
+      SYSTEM_ADMINUSER_PASSWORT: "changeMe"
+      SPRING_PROFILES_ACTIVE: "dev"
+    restart: unless-stopped
