@@ -13,7 +13,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-//Author: Tolga Cenk Kilic, Thenujan Karunakumar
+//Author: Tolga Cenk Kilic, Thenujan Karunakumar, Fiona Sander
 @SpringBootTest
 class TeambuilderApplicationTests {
 

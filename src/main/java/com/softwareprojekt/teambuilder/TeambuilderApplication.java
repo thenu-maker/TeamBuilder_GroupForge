@@ -8,6 +8,7 @@ public class TeambuilderApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TeambuilderApplication.class, args);
+
     }
 
 }

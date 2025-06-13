@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.softwareprojekt</groupId>
-    <artifactId>Teambuilder</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>GroupForge</artifactId>
+    <version>1.0</version>
     <name>Teambuilder</name>
     <description>Teambuilder</description>
     <url/>
