@@ -346,6 +346,8 @@ public class VeranstaltungDetailView extends VerticalLayout implements BeforeEnt
                 // aktualisierte Termine laden
                 List<Termin> aktualisierteTermine = terminService.findAllTermineByVeranstaltung(aktuelleVeranstaltung);
                 terminGrid.setItems(aktualisierteTermine);
+                terminList.clear();
+                terminList.addAll(terminService.findAllTermineByVeranstaltung(veranstaltung));
             });
             dialog.open();
         });
@@ -358,6 +360,8 @@ public class VeranstaltungDetailView extends VerticalLayout implements BeforeEnt
                     bearbeitenDialog.setSaveCallback(geänderterTermin -> {
                         List<Termin> aktualisierteListe = terminService.findeAlleTermineByVeranstaltung(veranstaltung);
                         terminGrid.setItems(aktualisierteListe);
+                        terminList.clear();
+                        terminList.addAll(terminService.findAllTermineByVeranstaltung(veranstaltung));
                         Notification.show("Termin wurde auf den " + FormatService.formatDate(termin.getDatum()) + " aktualisiert", 3000, Notification.Position.MIDDLE);
                     });
                     bearbeitenDialog.open();
@@ -382,6 +386,8 @@ public class VeranstaltungDetailView extends VerticalLayout implements BeforeEnt
                             Veranstaltung v = veranstaltungService.findVeranstaltungById(id);
                             List<Termin> list = terminService.findAllTermineByVeranstaltung(v);
                             terminGrid.setItems(list);
+                            terminList.clear();
+                            terminList.addAll(terminService.findAllTermineByVeranstaltung(veranstaltung));
                             Notification.show("Termin am " + FormatService.formatDate(termin.getDatum()) + " wurde gelöscht", 3000, Notification.Position.MIDDLE);
                         } catch (Exception ex) {
                             Notification.show("Fehler beim Löschen des Termins: " + ex.getMessage(), 3000, Notification.Position.MIDDLE);

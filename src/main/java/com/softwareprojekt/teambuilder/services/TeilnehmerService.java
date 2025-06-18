@@ -77,6 +77,8 @@ public class TeilnehmerService {
             veranstaltungRepository.save(veranstaltung);
         }
 
+        save(managed);
+        entityManager.flush();
 
         teilnehmerRepository.delete(managed);
     }
