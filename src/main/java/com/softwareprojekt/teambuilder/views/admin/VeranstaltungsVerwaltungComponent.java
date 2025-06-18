@@ -101,7 +101,7 @@ public class VeranstaltungsVerwaltungComponent extends VerticalLayout {
         dialog.setConfirmText("Löschen");
         dialog.setConfirmButtonTheme("error primary");
         dialog.addConfirmListener(e -> {
-            veranstaltungService.delete(event.getVeranstaltung());
+            veranstaltungService.deleteVeranstaltungMitAbhaengigkeiten(event.getVeranstaltung());
             updateList();
             closeEditor();
         });

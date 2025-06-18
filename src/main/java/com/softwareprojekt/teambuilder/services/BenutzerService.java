@@ -99,9 +99,8 @@ public class BenutzerService {
                 }
                 entityManager.flush();
                 saveBenutzer(managed);
-
-                benutzerRepository.delete(managed);
             }
+            benutzerRepository.delete(managed);
         } else {
             System.out.println("Benutzer nicht gefunden.");
         }
